@@ -1,4 +1,4 @@
-# install.packages(c("tidyverse","caret","corrplot","GGally","randomForest","ranger","ipred","gbm","data.table"))
+# install.packages(c("tidyverse","caret","corrplot","GGally","randomForest","ranger","ipred","gbm","data.table" ,"plotmo"))
 
 library(tidyverse)
 library(caret)
@@ -23,7 +23,7 @@ test <- read_csv("datasets/california_test.csv")
 numeric_df <- train |> select_if(is.numeric)
 corr_mat <- cor(numeric_df, use = "pairwise.complete.obs", method = "pearson")
 corrplot(corr_mat,
-  method = "color", type = "upper", tl.cex = 0.7,
+  method = "color", type = "lower", tl.cex = 0.7,
   tl.col = "black", addCoef.col = "black",
   number.cex = 0.6,
   col = colorRampPalette(c("blue", "white", "red"))(200)
